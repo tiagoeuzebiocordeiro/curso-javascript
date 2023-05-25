@@ -117,3 +117,38 @@ class Produto {
     } 
 
 }
+
+// Instaciação de objetos - forma 1
+
+const curso = new Object();
+curso.nome = "Programação";
+curso.preco = 35.99;
+
+console.log(curso);
+
+curso['qtdAluno'] = 999;
+
+console.log(curso);
+
+delete curso['qtdAluno'];
+
+console.log(curso);
+
+// Instaciação de objetos - Literal - Forma 2
+
+const videogame = {
+    nome: "Valorant",
+    gratuito: true,
+    desenvolvedor: "Riot Games",
+    plataformas: "PC",
+    anoLancamento: 2020,
+    requisitos: {
+        gpu_minima: "GTX 750Ti",
+        cpu_minima: "i3 3100",
+        memoria_minima: "8gb",
+        armazenamento: "50gb",
+    }
+}
+
+console.log(videogame);
+console.log(videogame.nome + " - " + videogame.requisitos.gpu_minima);
