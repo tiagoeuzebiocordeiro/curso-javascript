@@ -94,6 +94,10 @@ class Pessoa { // OK
         return this._nome + " " + this._sobrenome;
     }
 
+    imprimirDados() {
+        console.log(`${this.nome} ${this.sobrenome}`);
+    }
+
 }
 
 class Funcionario extends Pessoa {
@@ -118,6 +122,12 @@ class Funcionario extends Pessoa {
     set registro(registro) {
         this._registro = registro;
     }
+
+    //Sobrescrita de metodo
+    imprimirDados() {
+        super.imprimirDados;
+        console.log(`Função: ${this.funcao.descricao}, Salario: ${this.funcao.salario}, Registro: ${this.registro}`);
+    }
 }
 
 class Cliente extends Pessoa {
@@ -134,18 +144,27 @@ class Cliente extends Pessoa {
         this._renda = renda;
     }
 
+
+    imprimirDados() {
+        super.imprimirDados;
+        console.log("Renda: " + this.renda);
+    }
+
 }
 
 
 const c1 = new Cliente("Bruce", "Wayne", "thebatman@mail.com", "123.123.123-12", 9123.22);
-console.log(c1);
+//console.log(c1);
 
 
 const c2 = new Cliente("Tanjiro", "Kamado", "tanjiro@mail.com", "981.123-978-21", 6521.23);
-console.log(c2);
-console.log(c1.nomeCompleto);
 
-c1.nome = "robin";
-console.log(c1.nomeCompleto); // minha logica eu nao quero mudar o nome completo, se for pra mudar o nome completo que mude primeiro o nome e o sobrenome e assim o metodo nomecompleto vai ser alterado
+const programador = new Funcao("Programador", 5987.44);
 
+const f1 = new Funcionario("Bob", "Grey", "bob@mail.com", "071.790.12-42", programador, "0124fa09");
 
+f1.imprimirDados();
+console.log(`cliente 1 nome: ${c1.nome}`);
+c1.imprimirDados();
+
+// polimofirsmo: comportamento diferente de metodos para determinados objetos
